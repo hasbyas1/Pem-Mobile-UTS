@@ -12,6 +12,7 @@ migrate_working_dir/
 
 # Catatan
 /lib/fragments/berita_catatan.dart
+/lib/fragments/biodata_catatan.dart
 /lib/fragments/kalkulator_catatan.dart
 
 # IntelliJ related
