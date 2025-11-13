@@ -29,9 +29,12 @@ class _BiodataFragmentState extends State<BiodataFragment> {
   Future<void> _selectDate(BuildContext context) async {
     final DateTime? picked = await showDatePicker(
       context: context,
-      initialDate: DateTime.now(),
+      initialDate: DateTime(2006),
       firstDate: DateTime(1990),
-      lastDate: DateTime(2010),
+      lastDate: DateTime.now(),
+      helpText: 'Pilih Tanggal Lahir',
+      cancelText: 'Batal',
+      confirmText: 'OK',
     );
     if (picked != null && picked != _selectedDate) {
       setState(() {
@@ -150,33 +153,25 @@ class _BiodataFragmentState extends State<BiodataFragment> {
                       fontWeight: FontWeight.w500,
                     ),
                   ),
-                  Row(
-                    children: [
-                      Expanded(
-                        child: RadioListTile<String>(
-                          title: const Text('Laki-laki'),
-                          value: 'Laki-laki',
-                          groupValue: _selectedGender,
-                          onChanged: (String? value) {
-                            setState(() {
-                              _selectedGender = value!;
-                            });
-                          },
-                        ),
-                      ),
-                      Expanded(
-                        child: RadioListTile<String>(
-                          title: const Text('Perempuan'),
-                          value: 'Perempuan',
-                          groupValue: _selectedGender,
-                          onChanged: (String? value) {
-                            setState(() {
-                              _selectedGender = value!;
-                            });
-                          },
-                        ),
-                      ),
-                    ],
+                  RadioListTile<String>(
+                    title: const Text('Laki-laki'),
+                    value: 'Laki-laki',
+                    groupValue: _selectedGender,
+                    onChanged: (String? value) {
+                      setState(() {
+                        _selectedGender = value!;
+                      });
+                    },
+                  ),
+                  RadioListTile<String>(
+                    title: const Text('Perempuan'),
+                    value: 'Perempuan',
+                    groupValue: _selectedGender,
+                    onChanged: (String? value) {
+                      setState(() {
+                        _selectedGender = value!;
+                      });
+                    },
                   ),
 
                   const SizedBox(height: 15),
