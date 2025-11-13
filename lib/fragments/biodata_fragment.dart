@@ -56,11 +56,11 @@ class _BiodataFragmentState extends State<BiodataFragment> {
               radius: 60,
               backgroundColor: Colors.blue,
               backgroundImage: AssetImage('assets/images/hasby.jpg'),
-              child: Icon(
-                Icons.person,
-                size: 60,
-                color: Colors.white,
-              ),
+              // child: Icon(
+              //   Icons.person,
+              //   size: 60,
+              //   color: Colors.white,
+              // ),
             ),
           ),
 

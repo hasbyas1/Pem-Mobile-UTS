@@ -68,11 +68,11 @@ class _SplashScreenState extends State<SplashScreen> {
                 radius: 80,
                 backgroundColor: Colors.white,
                 backgroundImage: AssetImage('assets/images/hasby.jpg'),
-                child: Icon(
-                  Icons.person,
-                  size: 80,
-                  color: Colors.blue,
-                ),
+                // child: Icon(
+                //   Icons.person,
+                //   size: 80,
+                //   color: Colors.blue,
+                // ),
               ),
             ),
 
