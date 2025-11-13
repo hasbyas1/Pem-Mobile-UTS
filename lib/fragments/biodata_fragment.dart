@@ -30,19 +30,19 @@ class _BiodataFragmentState extends State<BiodataFragment> {
     'Teknik Sipil',
   ];
 
-  // Fungsi untuk format NIM otomatis (XX-XXXX-XXXX)
+  // Fungsi untuk format NIM otomatis (XX-XXXX-XXX)
   void _formatNIM(String value) {
     // Hapus semua karakter non-digit
     String digitsOnly = value.replaceAll(RegExp(r'[^\d]'), '');
 
-    // Batasi maksimal 10 digit
-    if (digitsOnly.length > 10) {
-      digitsOnly = digitsOnly.substring(0, 10);
+    // Batasi maksimal 9 digit
+    if (digitsOnly.length > 9) {
+      digitsOnly = digitsOnly.substring(0, 9);
     }
 
     String formatted = '';
 
-    // Format: XX-XXXX-XXXX
+    // Format: XX-XXXX-XXX
     if (digitsOnly.length <= 2) {
       formatted = digitsOnly;
     } else if (digitsOnly.length <= 6) {
@@ -67,6 +67,25 @@ class _BiodataFragmentState extends State<BiodataFragment> {
     return regExp.hasMatch(email);
   }
 
+  @override
+  void initState() {
+    super.initState();
+
+    // Isi data default menggunakan WidgetsBinding agar dipanggil setelah widget dibuild
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      setState(() {
+        _namaController.text = 'Muhammad Hasby As-shiddiqy';
+        _nimController.text = '15-2023-072';
+        _emailController.text = 'muhammad.hasby@mhs.itenas.ac.id';
+        _selectedJurusan = 'Informatika';
+        _selectedGender = 'Laki-laki';
+        _selectedDate = DateTime(2006, 1, 11); // 11 Januari 2006
+        _alamatController.text =
+            'Jl. Terusan Pasteur (Garunggang Kulon) No.22/65 Bandung, Jawa Barat';
+      });
+    });
+  }
+
   // Method untuk validasi email saat user mengetik
   void _onEmailChanged(String value) {
     setState(() {
@@ -83,12 +102,9 @@ class _BiodataFragmentState extends State<BiodataFragment> {
   Future<void> _selectDate(BuildContext context) async {
     final DateTime? picked = await showDatePicker(
       context: context,
-      initialDate: DateTime(2006),
+      initialDate: DateTime.now(),
       firstDate: DateTime(1990),
-      lastDate: DateTime.now(),
-      helpText: 'Pilih Tanggal Lahir',
-      cancelText: 'Batal',
-      confirmText: 'OK',
+      lastDate: DateTime(2010),
     );
     if (picked != null && picked != _selectedDate) {
       setState(() {
@@ -170,7 +186,7 @@ class _BiodataFragmentState extends State<BiodataFragment> {
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
                       ),
-                      hintText: 'XX-XXXX-XXXX',
+                      hintText: 'XX-XXXX-XXX',
                     ),
                   ),
 
