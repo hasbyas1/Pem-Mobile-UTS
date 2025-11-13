@@ -7,21 +7,21 @@ class KontakFragment extends StatelessWidget {
   Widget build(BuildContext context) {
     // Data kontak statis (15 kontak)
     final List<Map<String, String>> kontakList = [
-      {'nama': 'Ahmad Fauzi', 'telepon': '0812-3456-7890'},
-      {'nama': 'Siti Nurhaliza', 'telepon': '0813-4567-8901'},
-      {'nama': 'Budi Santoso', 'telepon': '0814-5678-9012'},
-      {'nama': 'Dewi Lestari', 'telepon': '0815-6789-0123'},
-      {'nama': 'Eko Prasetyo', 'telepon': '0816-7890-1234'},
-      {'nama': 'Fitri Handayani', 'telepon': '0817-8901-2345'},
-      {'nama': 'Gita Savitri', 'telepon': '0818-9012-3456'},
-      {'nama': 'Hendra Gunawan', 'telepon': '0819-0123-4567'},
-      {'nama': 'Indah Permata', 'telepon': '0821-1234-5678'},
-      {'nama': 'Joko Widodo', 'telepon': '0822-2345-6789'},
-      {'nama': 'Kartika Sari', 'telepon': '0823-3456-7890'},
-      {'nama': 'Lutfi Rahman', 'telepon': '0824-4567-8901'},
-      {'nama': 'Maya Anggraini', 'telepon': '0825-5678-9012'},
-      {'nama': 'Nanda Pratama', 'telepon': '0826-6789-0123'},
-      {'nama': 'Oktavia Wijaya', 'telepon': '0827-7890-1234'},
+      {'nama': 'Pirman Fawn', 'telepon': '0812-3456-7890'},
+      {'nama': 'Yosapat Napt', 'telepon': '0813-4567-8901'},
+      {'nama': 'Ragus Rahmat', 'telepon': '0814-5678-9012'},
+      {'nama': 'Nopal Febri', 'telepon': '0815-6789-0123'},
+      {'nama': 'Ilham Daiva', 'telepon': '0816-7890-1234'},
+      {'nama': 'Day Rohana', 'telepon': '0817-8901-2345'},
+      {'nama': 'Nas Bella', 'telepon': '0818-9012-3456'},
+      {'nama': 'Bakti Cemara', 'telepon': '0819-0123-4567'},
+      {'nama': 'Ozil Innaka', 'telepon': '0821-1234-5678'},
+      {'nama': 'Aurial Putri', 'telepon': '0822-2345-6789'},
+      {'nama': 'Andar I', 'telepon': '0823-3456-7890'},
+      {'nama': 'Dennis Nyssus', 'telepon': '0899-5678-9012'},
+      {'nama': 'Nanda Pratama', 'telepon': '0899-6789-0123'},
+      {'nama': 'Silas Grey', 'telepon': '0899-4567-8901'},
+      {'nama': 'Zak', 'telepon': '0899-7890-1234'},
     ];
 
     return ListView.builder(
