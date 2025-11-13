@@ -55,8 +55,7 @@ class _BiodataFragmentState extends State<BiodataFragment> {
             child: const CircleAvatar(
               radius: 60,
               backgroundColor: Colors.blue,
-              // TODO: Ganti dengan foto Anda
-              // backgroundImage: AssetImage('assets/images/profile.jpg'),
+              backgroundImage: AssetImage('assets/images/hasby.jpg'),
               child: Icon(
                 Icons.person,
                 size: 60,

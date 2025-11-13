@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'UTS Pemrograman Mobile',
-      debugShowCheckedModeBanner: false,
+      debugShowCheckedModeBanner: false, // Hilangkan banner DEBUG
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
         useMaterial3: true,
