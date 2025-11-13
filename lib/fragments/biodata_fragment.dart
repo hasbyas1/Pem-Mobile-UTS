@@ -10,6 +10,7 @@ class BiodataFragment extends StatefulWidget {
 class _BiodataFragmentState extends State<BiodataFragment> {
   // Controllers untuk text field
   final TextEditingController _namaController = TextEditingController();
+  final TextEditingController _nimController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _alamatController = TextEditingController();
 
@@ -28,6 +29,35 @@ class _BiodataFragmentState extends State<BiodataFragment> {
     'Teknik Mesin',
     'Teknik Sipil',
   ];
+
+  // Fungsi untuk format NIM otomatis (XX-XXXX-XXXX)
+  void _formatNIM(String value) {
+    // Hapus semua karakter non-digit
+    String digitsOnly = value.replaceAll(RegExp(r'[^\d]'), '');
+
+    // Batasi maksimal 10 digit
+    if (digitsOnly.length > 10) {
+      digitsOnly = digitsOnly.substring(0, 10);
+    }
+
+    String formatted = '';
+
+    // Format: XX-XXXX-XXXX
+    if (digitsOnly.length <= 2) {
+      formatted = digitsOnly;
+    } else if (digitsOnly.length <= 6) {
+      formatted = '${digitsOnly.substring(0, 2)}-${digitsOnly.substring(2)}';
+    } else {
+      formatted =
+          '${digitsOnly.substring(0, 2)}-${digitsOnly.substring(2, 6)}-${digitsOnly.substring(6)}';
+    }
+
+    // Update controller tanpa trigger listener lagi
+    _nimController.value = TextEditingValue(
+      text: formatted,
+      selection: TextSelection.collapsed(offset: formatted.length),
+    );
+  }
 
   // Regex untuk validasi email
   bool _validateEmail(String email) {
@@ -129,6 +159,23 @@ class _BiodataFragmentState extends State<BiodataFragment> {
 
                   const SizedBox(height: 15),
 
+                  // NIM
+                  TextField(
+                    controller: _nimController,
+                    keyboardType: TextInputType.number,
+                    onChanged: _formatNIM,
+                    decoration: InputDecoration(
+                      labelText: 'NIM',
+                      prefixIcon: const Icon(Icons.badge_outlined),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      hintText: 'XX-XXXX-XXXX',
+                    ),
+                  ),
+
+                  const SizedBox(height: 15),
+
                   // Email dengan validasi regex
                   TextField(
                     controller: _emailController,
@@ -199,7 +246,7 @@ class _BiodataFragmentState extends State<BiodataFragment> {
 
                   const SizedBox(height: 20),
 
-                  // Radio Button untuk Gender (Vertikal)
+                  // Radio Button untuk Gender (2 Kolom)
                   const Text(
                     'Jenis Kelamin',
                     style: TextStyle(
@@ -208,29 +255,41 @@ class _BiodataFragmentState extends State<BiodataFragment> {
                     ),
                   ),
                   const SizedBox(height: 10),
-                  Column(
+                  Row(
                     children: [
-                      RadioListTile<String>(
-                        title: const Text('Laki-laki'),
-                        value: 'Laki-laki',
-                        groupValue: _selectedGender,
-                        onChanged: (String? value) {
-                          setState(() {
-                            _selectedGender = value!;
-                          });
-                        },
-                        activeColor: Colors.blue,
+                      Expanded(
+                        child: RadioListTile<String>(
+                          title: const Text(
+                            'Laki-laki',
+                            style: TextStyle(fontSize: 14),
+                          ),
+                          value: 'Laki-laki',
+                          groupValue: _selectedGender,
+                          onChanged: (String? value) {
+                            setState(() {
+                              _selectedGender = value!;
+                            });
+                          },
+                          activeColor: Colors.blue,
+                          contentPadding: EdgeInsets.zero,
+                        ),
                       ),
-                      RadioListTile<String>(
-                        title: const Text('Perempuan'),
-                        value: 'Perempuan',
-                        groupValue: _selectedGender,
-                        onChanged: (String? value) {
-                          setState(() {
-                            _selectedGender = value!;
-                          });
-                        },
-                        activeColor: Colors.blue,
+                      Expanded(
+                        child: RadioListTile<String>(
+                          title: const Text(
+                            'Perempuan',
+                            style: TextStyle(fontSize: 14),
+                          ),
+                          value: 'Perempuan',
+                          groupValue: _selectedGender,
+                          onChanged: (String? value) {
+                            setState(() {
+                              _selectedGender = value!;
+                            });
+                          },
+                          activeColor: Colors.blue,
+                          contentPadding: EdgeInsets.zero,
+                        ),
                       ),
                     ],
                   ),
@@ -270,7 +329,7 @@ class _BiodataFragmentState extends State<BiodataFragment> {
                     decoration: InputDecoration(
                       labelText: 'Alamat',
                       prefixIcon: const Icon(Icons.home_outlined),
-                      // alignLabelWithHint: true,
+                      alignLabelWithHint: true,
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
                       ),
@@ -353,6 +412,7 @@ class _BiodataFragmentState extends State<BiodataFragment> {
   @override
   void dispose() {
     _namaController.dispose();
+    _nimController.dispose();
     _emailController.dispose();
     _alamatController.dispose();
     super.dispose();
