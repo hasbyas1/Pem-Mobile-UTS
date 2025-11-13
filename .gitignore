@@ -10,6 +10,10 @@
 .svn/
 migrate_working_dir/
 
+# Catatan
+/lib/fragments/berita_catatan.dart
+/lib/fragments/kalkulator_catatan.dart
+
 # IntelliJ related
 *.iml
 *.ipr
