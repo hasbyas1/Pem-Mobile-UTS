@@ -18,6 +18,9 @@ class _BiodataFragmentState extends State<BiodataFragment> {
   String _selectedGender = 'Laki-laki';
   DateTime? _selectedDate;
 
+  // Variable untuk validasi email
+  String? _emailError;
+
   final List<String> _jurusanList = [
     'Informatika',
     'Sistem Informasi',
@@ -25,6 +28,27 @@ class _BiodataFragmentState extends State<BiodataFragment> {
     'Teknik Mesin',
     'Teknik Sipil',
   ];
+
+  // Regex untuk validasi email
+  bool _validateEmail(String email) {
+    // Regex pattern untuk email
+    String pattern = r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$';
+    RegExp regExp = RegExp(pattern);
+    return regExp.hasMatch(email);
+  }
+
+  // Method untuk validasi email saat user mengetik
+  void _onEmailChanged(String value) {
+    setState(() {
+      if (value.isEmpty) {
+        _emailError = 'Email tidak boleh kosong';
+      } else if (!_validateEmail(value)) {
+        _emailError = 'Format email tidak valid';
+      } else {
+        _emailError = null;
+      }
+    });
+  }
 
   Future<void> _selectDate(BuildContext context) async {
     final DateTime? picked = await showDatePicker(
@@ -105,16 +129,46 @@ class _BiodataFragmentState extends State<BiodataFragment> {
 
                   const SizedBox(height: 15),
 
-                  // Email
+                  // Email dengan validasi regex
                   TextField(
                     controller: _emailController,
                     keyboardType: TextInputType.emailAddress,
+                    onChanged: _onEmailChanged,
                     decoration: InputDecoration(
                       labelText: 'Email',
                       prefixIcon: const Icon(Icons.email_outlined),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
                       ),
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
+                        borderSide: BorderSide(
+                          color: _emailError != null ? Colors.red : Colors.grey,
+                          width: 1,
+                        ),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
+                        borderSide: BorderSide(
+                          color: _emailError != null ? Colors.red : Colors.blue,
+                          width: 2,
+                        ),
+                      ),
+                      errorText: _emailError,
+                      errorStyle: const TextStyle(
+                        color: Colors.red,
+                        fontSize: 12,
+                      ),
+                      suffixIcon: _emailController.text.isNotEmpty
+                          ? Icon(
+                              _emailError == null
+                                  ? Icons.check_circle
+                                  : Icons.error,
+                              color: _emailError == null
+                                  ? Colors.green
+                                  : Colors.red,
+                            )
+                          : null,
                     ),
                   ),
 
@@ -145,7 +199,7 @@ class _BiodataFragmentState extends State<BiodataFragment> {
 
                   const SizedBox(height: 20),
 
-                  // Radio Button Jenis Kelamin
+                  // Radio Button untuk Gender (Vertikal)
                   const Text(
                     'Jenis Kelamin',
                     style: TextStyle(
@@ -153,36 +207,43 @@ class _BiodataFragmentState extends State<BiodataFragment> {
                       fontWeight: FontWeight.w500,
                     ),
                   ),
-                  RadioListTile<String>(
-                    title: const Text('Laki-laki'),
-                    value: 'Laki-laki',
-                    groupValue: _selectedGender,
-                    onChanged: (String? value) {
-                      setState(() {
-                        _selectedGender = value!;
-                      });
-                    },
-                  ),
-                  RadioListTile<String>(
-                    title: const Text('Perempuan'),
-                    value: 'Perempuan',
-                    groupValue: _selectedGender,
-                    onChanged: (String? value) {
-                      setState(() {
-                        _selectedGender = value!;
-                      });
-                    },
+                  const SizedBox(height: 10),
+                  Column(
+                    children: [
+                      RadioListTile<String>(
+                        title: const Text('Laki-laki'),
+                        value: 'Laki-laki',
+                        groupValue: _selectedGender,
+                        onChanged: (String? value) {
+                          setState(() {
+                            _selectedGender = value!;
+                          });
+                        },
+                        activeColor: Colors.blue,
+                      ),
+                      RadioListTile<String>(
+                        title: const Text('Perempuan'),
+                        value: 'Perempuan',
+                        groupValue: _selectedGender,
+                        onChanged: (String? value) {
+                          setState(() {
+                            _selectedGender = value!;
+                          });
+                        },
+                        activeColor: Colors.blue,
+                      ),
+                    ],
                   ),
 
                   const SizedBox(height: 15),
 
-                  // Calendar / Date Picker
+                  // Tanggal Lahir dengan Calendar Picker
                   InkWell(
                     onTap: () => _selectDate(context),
                     child: InputDecorator(
                       decoration: InputDecoration(
                         labelText: 'Tanggal Lahir',
-                        prefixIcon: const Icon(Icons.calendar_today),
+                        prefixIcon: const Icon(Icons.calendar_today_outlined),
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10),
                         ),
@@ -202,42 +263,76 @@ class _BiodataFragmentState extends State<BiodataFragment> {
 
                   const SizedBox(height: 15),
 
-                  // Alamat (Multiline)
+                  // Alamat
                   TextField(
                     controller: _alamatController,
                     maxLines: 3,
                     decoration: InputDecoration(
                       labelText: 'Alamat',
-                      prefixIcon: const Icon(Icons.location_on_outlined),
+                      prefixIcon: const Icon(Icons.home_outlined),
+                      // alignLabelWithHint: true,
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
                       ),
                     ),
                   ),
 
-                  const SizedBox(height: 20),
+                  const SizedBox(height: 25),
 
-                  // Button Simpan (Optional - tidak perlu menyimpan ke database)
+                  // Tombol Simpan
                   SizedBox(
                     width: double.infinity,
+                    height: 50,
                     child: ElevatedButton(
                       onPressed: () {
+                        // Validasi semua field sebelum menyimpan
+                        if (_namaController.text.isEmpty) {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(
+                              content: Text('Nama tidak boleh kosong'),
+                              backgroundColor: Colors.red,
+                            ),
+                          );
+                          return;
+                        }
+
+                        if (_emailController.text.isEmpty ||
+                            _emailError != null) {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(
+                              content: Text('Email tidak valid'),
+                              backgroundColor: Colors.red,
+                            ),
+                          );
+                          return;
+                        }
+
+                        if (_selectedJurusan == null) {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(
+                              content: Text('Pilih jurusan terlebih dahulu'),
+                              backgroundColor: Colors.red,
+                            ),
+                          );
+                          return;
+                        }
+
+                        // Jika semua validasi lolos
                         ScaffoldMessenger.of(context).showSnackBar(
                           const SnackBar(
-                            content: Text('Data berhasil disimpan (sementara)'),
-                            duration: Duration(seconds: 2),
+                            content: Text('Data berhasil disimpan!'),
+                            backgroundColor: Colors.green,
                           ),
                         );
                       },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.blue.shade700,
-                        padding: const EdgeInsets.symmetric(vertical: 15),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10),
                         ),
                       ),
                       child: const Text(
-                        'Simpan Data',
+                        'Simpan',
                         style: TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
