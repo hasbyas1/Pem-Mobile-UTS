@@ -5,7 +5,7 @@ class BeritaFragment extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Data berita statis dengan URL gambar
+    // Data berita statis
     final List<Map<String, String>> beritaList = [
       {
         'judul':
@@ -28,24 +28,46 @@ class BeritaFragment extends StatelessWidget {
             'https://awsimages.detik.net.id/visual/2025/09/16/kereta-cepat-whoosh-1758006445490_169.jpeg?w=900&q=80',
       },
       {
-        'judul':
-            'Terungkap Siswa Pelaku Ledakan Taruh 7 Bom di SMAN 72 Jakarta, 4 Meledak',
-        'kategori': 'Kriminalitas',
-        'tanggal': '11 Nov 2025',
+        'judul': 'Timnas Indonesia Lolos ke Piala Dunia 2026',
+        'kategori': 'Olahraga',
+        'tanggal': '09 Nov 2025',
         'deskripsi':
-            'Jakarta - Polda Metro Jaya mengungkap hasil penyelidikan kasus ledakan bom di lingkungan SMAN 72 Jakarta. Total ada tujuh bom yang ditemukan di tempat kejadian perkara (TKP). \n\nDansat Brimob Polda Metro Jaya Kombes Henik Maryanto menyampaikan pihaknya menemukan dua bom yang meledak di TKP. Kemudian polisi pun langsung melakukan penjinakan beberapa bom lain yang masih aktif. \n\n"Kami melakukan penjinakan bom yang masih aktif dan mengamankan bahan peledak di TKP. Dan kemudian melakukan observasi di tempat kejadian ledakan, kemudian melakukan sterilisasi ulang," kata Henik dalam konferensi pers di Polda Metro Jaya, Jakarta Pusat, Selasa (11/11/2025).',
-        'gambar':
-            'https://akcdn.detik.net.id/community/media/visual/2025/11/07/kondisi-terkini-sma-negeri-72-kelapa-gading-jakarta-utara-usai-ledakan-taufiqdetikcom-1762503524171_169.jpeg?w=700&q=90',
+            'Kemenangan gemilang atas Thailand membawa Indonesia ke kompetisi tertinggi...',
       },
       {
-        'judul':
-            'Pria dianiaya hingga tewas karena tidur di Masjid Agung Sibolga – Apakah fungsi masjid hanya sebatas rumah ibadah?',
-        'kategori': 'Kriminalitas',
-        'tanggal': '5 Nov 2025',
+        'judul': 'Inovasi Energi Terbarukan di Indonesia',
+        'kategori': 'Lingkungan',
+        'tanggal': '08 Nov 2025',
         'deskripsi':
-            'Lima tersangka pelaku pengeroyokan terhadap Arjuna Tamaraya (21) yang berujung kematian di Masjid Agung Sibolga, Sumatra Utara, ditangkap dan ditetapkan sebagai tersangka. Dia dikeroyok oleh para pelaku karena tidur di dalam masjid. Peristiwa ini memperlihatkan penyempitan fungsi masjid sehingga kehilangan inklusivitasnya, kata pengamat. \n\n"Pergeseran fungsi ini terpengaruh dari bertumbuhnya fanatisme sempit dalam memahami agama itu. Ditambah pergeseran masjid sebagai ruang kekuasaan lokal bagi sebagian pihak yang kemudian membatasi masjid sebagai ruang yang lebih inklusif," ucap Antropolog dari Universitas Indonesia, Amanah Nurish, kepada BBC News Indonesia, Selasa (04/11). \n\nSaat ini, kelima tersangka yakni Chandra Lubis (38), Rismansyah Efendi Caniago (30), Zulham Piliang (57), Hasan Basri (46), dan Syazwan Situmorang (40) dijerat Pasal 338 subsider Pasal 170 ayat 3 KUHPidana terkait pembunuhan. \n\nUntuk Syazwan, polisi menambahkan Pasal 365 ayat 3 karena mengambil uang korban sebesar Rp10 ribu..',
-        'gambar':
-            'https://ichef.bbci.co.uk/ace/ws/800/cpsprodpb/c8c4/live/0706dc80-b9fd-11f0-aa13-0b0479f6f42a.jpg.webp',
+            'Pemerintah terus mendorong penggunaan energi bersih untuk masa depan...',
+      },
+      {
+        'judul': 'Festival Budaya Nusantara Digelar di Jakarta',
+        'kategori': 'Budaya',
+        'tanggal': '07 Nov 2025',
+        'deskripsi':
+            'Ribuan pengunjung memadati venue untuk menyaksikan keragaman budaya Indonesia...',
+      },
+      {
+        'judul': 'Startup Indonesia Raih Pendanaan 50 Juta Dollar',
+        'kategori': 'Bisnis',
+        'tanggal': '06 Nov 2025',
+        'deskripsi':
+            'Perusahaan teknologi lokal berhasil menarik investor internasional...',
+      },
+      {
+        'judul': 'Terobosan Baru dalam Pengobatan Kanker',
+        'kategori': 'Kesehatan',
+        'tanggal': '05 Nov 2025',
+        'deskripsi':
+            'Peneliti menemukan metode terapi yang lebih efektif dan minim efek samping...',
+      },
+      {
+        'judul': 'Peluncuran Satelit Komunikasi Nusantara',
+        'kategori': 'Teknologi',
+        'tanggal': '04 Nov 2025',
+        'deskripsi':
+            'Indonesia meluncurkan satelit untuk meningkatkan konektivitas digital...',
       },
     ];
 
@@ -71,27 +93,6 @@ class BeritaFragment extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        // Gambar di dialog
-                        ClipRRect(
-                          borderRadius: BorderRadius.circular(10),
-                          child: Image.network(
-                            beritaList[index]['gambar']!,
-                            height: 200,
-                            fit: BoxFit.cover,
-                            errorBuilder: (context, error, stackTrace) {
-                              return Container(
-                                height: 200,
-                                color: Colors.grey.shade300,
-                                child: const Icon(
-                                  Icons.image_not_supported,
-                                  size: 50,
-                                  color: Colors.grey,
-                                ),
-                              );
-                            },
-                          ),
-                        ),
-                        const SizedBox(height: 15),
                         Row(
                           children: [
                             Icon(Icons.category,
@@ -137,49 +138,18 @@ class BeritaFragment extends StatelessWidget {
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  // Gambar berita
-                  ClipRRect(
-                    borderRadius: BorderRadius.circular(10),
-                    child: Image.network(
-                      beritaList[index]['gambar']!,
-                      width: 100,
-                      height: 100,
-                      fit: BoxFit.cover,
-                      errorBuilder: (context, error, stackTrace) {
-                        // Jika gambar gagal dimuat, tampilkan placeholder
-                        return Container(
-                          width: 100,
-                          height: 100,
-                          decoration: BoxDecoration(
-                            color: Colors.blue.shade100,
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          child: Icon(
-                            Icons.image,
-                            size: 40,
-                            color: Colors.blue.shade700,
-                          ),
-                        );
-                      },
-                      loadingBuilder: (context, child, loadingProgress) {
-                        if (loadingProgress == null) return child;
-                        return Container(
-                          width: 100,
-                          height: 100,
-                          decoration: BoxDecoration(
-                            color: Colors.grey.shade200,
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          child: Center(
-                            child: CircularProgressIndicator(
-                              value: loadingProgress.expectedTotalBytes != null
-                                  ? loadingProgress.cumulativeBytesLoaded /
-                                      loadingProgress.expectedTotalBytes!
-                                  : null,
-                            ),
-                          ),
-                        );
-                      },
+                  // Image placeholder
+                  Container(
+                    width: 80,
+                    height: 80,
+                    decoration: BoxDecoration(
+                      color: Colors.blue.shade100,
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: Icon(
+                      Icons.article,
+                      size: 40,
+                      color: Colors.blue.shade700,
                     ),
                   ),
 
