@@ -102,9 +102,12 @@ class _BiodataFragmentState extends State<BiodataFragment> {
   Future<void> _selectDate(BuildContext context) async {
     final DateTime? picked = await showDatePicker(
       context: context,
-      initialDate: DateTime.now(),
+      initialDate: DateTime(2006),
       firstDate: DateTime(1990),
-      lastDate: DateTime(2010),
+      lastDate: DateTime.now(),
+      helpText: 'Pilih Tanggal Lahir',
+      cancelText: 'Batal',
+      confirmText: 'OK',
     );
     if (picked != null && picked != _selectedDate) {
       setState(() {
