@@ -2,7 +2,7 @@
 
 Repository ini dibuat untuk memenuhi **Ujian Tengah Semester (UTS)** pada mata kuliah **IFB-355 Pemrograman Mobile** - Institut Teknologi Nasional Bandung.
 
-**Nama**: Muhammad Hasby As-shiddiqy | **NIM**: 15-2023-072 | **Kelas**: AA
+Muhammad Hasby As-shiddiqy | 15-2023-072 |  IFB-355 Pemrograman Mobile AA
 ---
 
 ## Deskripsi Aplikasi
