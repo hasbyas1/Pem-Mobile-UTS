@@ -30,7 +30,7 @@ Halaman awal aplikasi yang ditampilkan selama **5 detik** dengan informasi:
 
 **Screenshot:**
 
-<img width="464" height="850" alt="image" src="https://github.com/user-attachments/assets/c48efb96-0553-4edf-b9d0-2083abee2b87" />
+<img width="232" height="425" alt="image" src="https://github.com/user-attachments/assets/c48efb96-0553-4edf-b9d0-2083abee2b87" />
 
 ---
 
@@ -46,7 +46,7 @@ Semua menu menggunakan konsep **Fragment** untuk perpindahan halaman yang efisie
 
 **Screenshot:**
 
-<img width="466" height="66" alt="image" src="https://github.com/user-attachments/assets/5d748fbb-ab60-4bde-aa6e-164ea2151f2b" />
+<img width="233" height="33" alt="image" src="https://github.com/user-attachments/assets/5d748fbb-ab60-4bde-aa6e-164ea2151f2b" />
 
 ---
 
@@ -70,13 +70,13 @@ Halaman yang menampilkan informasi pribadi dengan form input yang interaktif, me
 
 **Screenshot:**
 
-<img width="461" height="773" alt="image" src="https://github.com/user-attachments/assets/569184a3-21b1-4943-9274-e51558d21b7d" />
-<img width="461" height="774" alt="image" src="https://github.com/user-attachments/assets/a43f387f-1afb-48c1-8a32-c2a825067ba3" />
-<img width="459" height="110" alt="image" src="https://github.com/user-attachments/assets/23116ed5-3004-44ce-bf45-e5c42a3ee029" />
-<img width="456" height="327" alt="image" src="https://github.com/user-attachments/assets/d1ed850e-8293-4f44-9d56-ceadb478b797" />
-<img width="451" height="717" alt="image" src="https://github.com/user-attachments/assets/b581717f-4d2b-41cc-9f5a-9b80db221392" />
-<img width="463" height="124" alt="image" src="https://github.com/user-attachments/assets/2fe54db0-01b8-49c9-9d64-1665a8af8455" />
-<img width="462" height="127" alt="image" src="https://github.com/user-attachments/assets/3a5b6d7d-7052-4a99-872e-f4520c0d1609" />
+<img width="230" height="386" alt="image" src="https://github.com/user-attachments/assets/569184a3-21b1-4943-9274-e51558d21b7d" />
+<img width="230" height="387" alt="image" src="https://github.com/user-attachments/assets/a43f387f-1afb-48c1-8a32-c2a825067ba3" /> <br>
+<img width="228" height="163" alt="image" src="https://github.com/user-attachments/assets/d1ed850e-8293-4f44-9d56-ceadb478b797" /> <br>
+<img width="225" height="358" alt="image" src="https://github.com/user-attachments/assets/b581717f-4d2b-41cc-9f5a-9b80db221392" /> <br>
+<img width="230" height="55" alt="image" src="https://github.com/user-attachments/assets/23116ed5-3004-44ce-bf45-e5c42a3ee029" /> <br>
+<img width="232" height="62" alt="image" src="https://github.com/user-attachments/assets/2fe54db0-01b8-49c9-9d64-1665a8af8455" /> <br>
+<img width="231" height="63" alt="image" src="https://github.com/user-attachments/assets/3a5b6d7d-7052-4a99-872e-f4520c0d1609" /> <br>
 
 
 ---
@@ -95,8 +95,8 @@ Halaman yang menampilkan **daftar 15 kontak telepon** dengan layout yang menarik
 
 **Screenshot:**
 
-<img width="461" height="301" alt="image" src="https://github.com/user-attachments/assets/df59b7d7-252a-457d-b9d7-404738291b28" />
-<img width="463" height="234" alt="image" src="https://github.com/user-attachments/assets/ff8e5ba2-5054-4bfd-8d03-ff94795df0e6" />
+<img width="230" height="150" alt="image" src="https://github.com/user-attachments/assets/df59b7d7-252a-457d-b9d7-404738291b28" /> <br>
+<img width="232" height="117" alt="image" src="https://github.com/user-attachments/assets/ff8e5ba2-5054-4bfd-8d03-ff94795df0e6" /> <br>
 
 
 ---
@@ -123,8 +123,8 @@ Kalkulator sederhana yang **sudah dapat melakukan perhitungan** matematika.
 
 **Screenshot:**
 
-<img width="462" height="781" alt="image" src="https://github.com/user-attachments/assets/fd5eca65-4d62-4134-ab64-5ad85bcb2ce9" />
-<img width="464" height="379" alt="image" src="https://github.com/user-attachments/assets/ab36f9c8-597f-4a95-afbf-3a7c5024868d" />
+<img width="231" height="390" alt="image" src="https://github.com/user-attachments/assets/fd5eca65-4d62-4134-ab64-5ad85bcb2ce9" />
+<img width="232" height="185" alt="image" src="https://github.com/user-attachments/assets/ab36f9c8-597f-4a95-afbf-3a7c5024868d" /> <br>
 
 
 ---
@@ -148,8 +148,8 @@ Halaman yang menampilkan informasi cuaca dengan UI yang menarik.
 
 **Screenshot:**
 
-<img width="464" height="780" alt="image" src="https://github.com/user-attachments/assets/7ccc0d3f-833a-4a89-a1c3-f1bda11507d7" />
-<img width="463" height="779" alt="image" src="https://github.com/user-attachments/assets/abd4ccc0-2e85-4cf9-95b1-8dba3c7fd65e" />
+<img width="232" height="390" alt="image" src="https://github.com/user-attachments/assets/7ccc0d3f-833a-4a89-a1c3-f1bda11507d7" />
+<img width="231" height="390" alt="image" src="https://github.com/user-attachments/assets/abd4ccc0-2e85-4cf9-95b1-8dba3c7fd65e" />
 
 ---
 
@@ -173,8 +173,8 @@ Halaman yang menampilkan **daftar berita** dengan gambar dan informasi lengkap.
 
 **Screenshot:**
 
-<img width="465" height="778" alt="image" src="https://github.com/user-attachments/assets/c6d3490f-691c-4c1d-ae89-61ee9fb16df7" />
-<img width="462" height="849" alt="image" src="https://github.com/user-attachments/assets/93f2fd90-7d94-4a08-858f-827742f72212" />
+<img width="232" height="421" alt="image" src="https://github.com/user-attachments/assets/f4217b61-81c5-4920-a190-0866d2debe2e" />
+<img width="231" height="425" alt="image" src="https://github.com/user-attachments/assets/93f2fd90-7d94-4a08-858f-827742f72212" />
 
 
 ---
